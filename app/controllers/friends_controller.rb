@@ -8,6 +8,7 @@ class FriendsController < ApplicationController
 
   # GET /friends/1 or /friends/1.json
   def show
+    puts "Gets a friend"
   end
 
   # GET /friends/new
@@ -49,6 +50,7 @@ class FriendsController < ApplicationController
 
   # DELETE /friends/1 or /friends/1.json
   def destroy
+    puts "Need to delete the thing"
     @friend.destroy
     respond_to do |format|
       format.html { redirect_to friends_url, notice: "Friend was successfully destroyed." }

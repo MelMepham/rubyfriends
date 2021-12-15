@@ -2,29 +2,46 @@
 
 <h1>Friends</h1>
 
-<table>
+<table class="f6 w-100 mw8 center" cellspacing="0">
   <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Twitter</th>
-      <th colspan="3"></th>
+    <tr class="stripe-dark">
+      <th class="fw6 tl pa3 bg-white">First name</th>
+      <th class="fw6 tl pa3 bg-white">Last name</th>
+      <th class="fw6 tl pa3 bg-white">Email</th>
+      <th class="fw6 tl pa3 bg-white">Phone</th>
+      <th class="fw6 tl pa3 bg-white">Twitter</th>
+      <th class="fw6 tl pa3 bg-white" colspan="3"></th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="lh-copy">
     <% @friends.each do |friend| %>
-      <tr>
-        <td><%= friend.first_name %></td>
-        <td><%= friend.last_name %></td>
-        <td><%= friend.email %></td>
-        <td><%= friend.phone %></td>
-        <td><%= friend.twitter %></td>
-        <td><%= link_to 'Show', friend %></td>
-        <td><%= link_to 'Edit', edit_friend_path(friend) %></td>
-        <td><%= link_to 'Destroy', friend, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <tr class="stripe-dark">
+        <td class="pa3">
+          <%= friend.first_name %>
+        </td>
+        <td class="pa3">
+          <%= friend.last_name %>
+        </td>
+        <td class="pa3">
+          <%= friend.email %>
+        </td>
+        <td class="pa3">
+          <%= friend.phone %>
+        </td>
+        <td class="pa3">
+          <%= friend.twitter %>
+        </td>
+        <td class="pa3">
+          <%= link_to 'Show', friend, class:"f6 link dim ba br2 ph3 pv2 mb2 dib white bg-hot-pink" %>
+        </td>
+        <td class="pa3">
+          <%= link_to 'Edit', edit_friend_path(friend), class:"f6 link dim br2 ba bw1 ph3 pv2 mb2 dib hot-pink" %>
+        </td>
+        <td class="pa3">
+          <%= link_to 'Destroy', friend, method: :delete, data: { confirm: 'Are you sure?' }%>
+        </td>
+        <td><%= link_to 'Delete', friend, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>
