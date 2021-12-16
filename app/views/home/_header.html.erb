@@ -1,16 +1,16 @@
 <header class="bg-black-90 w-100 ph3 pv3 pv4-ns ph4-m ph5-l">
   <nav class="f6 fw6 ttu tracked">
-    <ul class="flex">
-      <li>
+    <ul class="flex-m pl0">
+      <li class="mt3 mt0-m">
         <%= link_to 'Friend App', root_path, class:"#{active_class(root_path)}" %>
       </li>
-      <li>
+      <li class="mt3 mt0-m">
         <%= link_to 'Show friends', friends_path, class:"#{active_class(friends_path)}" %>
       </li>
-      <li>
+      <li class="mt3 mt0-m">
         <%= link_to 'New friend', new_friend_path, class:"#{active_class(new_friend_path)}" %>
       </li>
-      <li>
+      <li class="mt3 mt0-m">
         <%= link_to 'About', :about, class:"#{active_class(:about)}" %>
       </li>
     </ul>
