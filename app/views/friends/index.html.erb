@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<%= render 'notification' %>
 
 <h1>Friends</h1>
 
@@ -39,14 +39,12 @@
           <%= link_to 'Edit', edit_friend_path(friend), class:"f6 link dim br2 ba bw1 ph3 pv2 mb2 dib hot-pink" %>
         </td>
         <td class="pa3">
-          <%= link_to 'Destroy', friend, method: :delete, data: { confirm: 'Are you sure?' }%>
+          <%= link_to 'Delete', friend, method: :delete, data: { confirm: 'Are you sure?' }, class:"f6 link dim br2 ba bw1 ph3 pv2 mb2 dib b--black black" %>
         </td>
-        <td><%= link_to 'Delete', friend, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
 
-<%= link_to 'New Friend', new_friend_path %>
+<%= link_to 'New Friend', new_friend_path, class:"f6 link dim ba br2 ph3 pv2 mb2 dib white bg-hot-pink" %>

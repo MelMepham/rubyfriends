@@ -1,29 +1,32 @@
-<p id="notice"><%= notice %></p>
+<%= render 'notification' %>
 
-<p>
-  <strong>First name:</strong>
-  <%= @friend.first_name %>
-</p>
+<div class="mw5 bg-white br3 pa3 pa4-ns mv3 ba b--black-10">
 
-<p>
-  <strong>Last name:</strong>
-  <%= @friend.last_name %>
-</p>
+  <p>
+    <strong>First name:</strong>
+    <%= @friend.first_name %>
+  </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @friend.email %>
-</p>
+  <p>
+    <strong>Last name:</strong>
+    <%= @friend.last_name %>
+  </p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @friend.phone %>
-</p>
+  <p>
+    <strong>Email:</strong>
+    <%= @friend.email %>
+  </p>
 
-<p>
-  <strong>Twitter:</strong>
-  <%= @friend.twitter %>
-</p>
+  <p>
+    <strong>Phone:</strong>
+    <%= @friend.phone %>
+  </p>
 
-<%= link_to 'Edit', edit_friend_path(@friend) %> |
-<%= link_to 'Back', friends_path %>
+  <p>
+    <strong>Twitter:</strong>
+    <%= @friend.twitter %>
+  </p>
+</div>
+
+<%= link_to 'Edit', edit_friend_path(@friend), class:"f6 link dim br2 ba bw1 ph3 pv2 mb2 dib b__black" %>
+<%= link_to 'Back', friends_path, class:"f6 link dim br2 ba bw1 ph3 pv2 mb2 dib hot-pink" %>

@@ -8,7 +8,6 @@ class FriendsController < ApplicationController
 
   # GET /friends/1 or /friends/1.json
   def show
-    puts "Gets a friend"
   end
 
   # GET /friends/new
@@ -26,7 +25,8 @@ class FriendsController < ApplicationController
 
     respond_to do |format|
       if @friend.save
-        format.html { redirect_to @friend, notice: "Friend was successfully created." }
+        flash[:notice] = "Friend was successfully created."
+        format.html { redirect_to @friend }
         format.json { render :show, status: :created, location: @friend }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,8 @@ class FriendsController < ApplicationController
   def update
     respond_to do |format|
       if @friend.update(friend_params)
-        format.html { redirect_to @friend, notice: "Friend was successfully updated." }
+        flash[:notice] = "Friend was successfully updated."
+        format.html { redirect_to @friend }
         format.json { render :show, status: :ok, location: @friend }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -50,10 +51,11 @@ class FriendsController < ApplicationController
 
   # DELETE /friends/1 or /friends/1.json
   def destroy
-    puts "Need to delete the thing"
     @friend.destroy
     respond_to do |format|
-      format.html { redirect_to friends_url, notice: "Friend was successfully destroyed." }
+      flash[:notice] = "Friend was successfully destroyed."
+
+      format.html { redirect_to friends_url }
       format.json { head :no_content }
     end
   end
