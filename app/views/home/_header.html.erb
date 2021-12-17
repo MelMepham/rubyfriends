@@ -1,18 +1,30 @@
 <header class="bg-black-90 w-100 ph3 pv3 pv4-ns ph4-m ph5-l">
   <nav class="f6 fw6 ttu tracked">
-    <ul class="flex-m pl0">
-      <li class="mt3 mt0-m">
+    <ul class="flex-l pl0">
+      <li class="mt3 mt0-l">
         <%= link_to 'Friend App', root_path, class:"#{active_class(root_path)}" %>
       </li>
-      <li class="mt3 mt0-m">
+      <% if user_signed_in? %>
+      <li class="mt3 mt0-l">
         <%= link_to 'Show friends', friends_path, class:"#{active_class(friends_path)}" %>
       </li>
-      <li class="mt3 mt0-m">
+      <li class="mt3 mt0-l">
         <%= link_to 'New friend', new_friend_path, class:"#{active_class(new_friend_path)}" %>
       </li>
-      <li class="mt3 mt0-m">
-        <%= link_to 'About', :about, class:"#{active_class(:about)}" %>
+      <li class="mt3 mt0-l">
+        <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class:"#{active_class(destroy_user_session_path)}" %>
       </li>
+      <li class="mt3 mt0-l">
+        <%= link_to 'Edit profile', edit_user_registration_path, class:"#{active_class(edit_user_registration_path)}" %>
+      </li>
+      <% else %>
+        <li class="mt3 mt0-l">
+          <%= link_to 'Sign up', new_user_registration_path, class:"#{active_class(new_user_registration_path)}" %>
+        </li>
+        <li class="mt3 mt0-l">
+          <%= link_to 'Sign in', new_user_session_path, class:"#{active_class(new_user_session_path)}" %>
+        </li>
+      <% end %>
     </ul>
   </nav>
 </header>

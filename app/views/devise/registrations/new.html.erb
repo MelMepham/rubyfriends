@@ -1,0 +1,29 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field mt3">
+    <%= f.label :email, class:"db fw6 lh-copy f6" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
+  </div>
+
+  <div class="field mt3">
+    <%= f.label :password, class:"db fw6 lh-copy f6" %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password", class:"pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
+  </div>
+
+  <div class="field mt3">
+    <%= f.label :password_confirmation, class:"db fw6 lh-copy f6" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
+  </div>
+
+  <div class="actions mt3">
+    <%= f.submit "Sign up", class:"f6 link dim ba br2 ph3 pv2 mb2 dib white bg-hot-pink" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
