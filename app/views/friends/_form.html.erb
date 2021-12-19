@@ -36,6 +36,8 @@
     <%= form.text_field :twitter, class:"pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"%>
   </div>
 
+    <%= form.number_field :user_id, id: :friend_user_id, value:current_user.id, type: :hidden %>
+
   <div class="actions mt3">
     <%= form.submit class:"f6 link dim ba br2 ph3 pv2 mb2 dib white bg-hot-pink" %>
   </div>

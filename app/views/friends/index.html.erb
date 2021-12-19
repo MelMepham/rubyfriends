@@ -1,7 +1,4 @@
-<%= render 'notification' %>
-
 <h1>Friends</h1>
-
 <table class="f6 w-100 mw8 center" cellspacing="0">
   <thead>
     <tr class="stripe-dark">
@@ -10,6 +7,7 @@
       <th class="fw6 tl pa3 bg-white">Email</th>
       <th class="fw6 tl pa3 bg-white">Phone</th>
       <th class="fw6 tl pa3 bg-white">Twitter</th>
+      <th class="fw6 tl pa3 bg-white">User ID</th>
       <th class="fw6 tl pa3 bg-white" colspan="3"></th>
     </tr>
   </thead>
@@ -31,6 +29,9 @@
         </td>
         <td class="pa3">
           <%= friend.twitter %>
+        </td>
+        <td class="pa3">
+          <%= friend.user_id %>
         </td>
         <td class="pa3">
           <%= link_to 'Show', friend, class:"f6 link dim ba br2 ph3 pv2 mb2 dib white bg-hot-pink" %>
