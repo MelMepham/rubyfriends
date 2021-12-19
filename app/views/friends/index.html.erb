@@ -1,51 +1,44 @@
 <h1>Friends</h1>
-<table class="f6 w-100 mw8 center" cellspacing="0">
-  <thead>
-    <tr class="stripe-dark">
-      <th class="fw6 tl pa3 bg-white">First name</th>
-      <th class="fw6 tl pa3 bg-white">Last name</th>
-      <th class="fw6 tl pa3 bg-white">Email</th>
-      <th class="fw6 tl pa3 bg-white">Phone</th>
-      <th class="fw6 tl pa3 bg-white">Twitter</th>
-      <th class="fw6 tl pa3 bg-white">User ID</th>
-      <th class="fw6 tl pa3 bg-white" colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody class="lh-copy">
-    <% @friends.each do |friend| %>
+<% if user_signed_in? %>
+  <table class="f6 w-100 mw8 center" cellspacing="0">
+    <thead>
       <tr class="stripe-dark">
-        <td class="pa3">
-          <%= friend.first_name %>
-        </td>
-        <td class="pa3">
-          <%= friend.last_name %>
-        </td>
-        <td class="pa3">
-          <%= friend.email %>
-        </td>
-        <td class="pa3">
-          <%= friend.phone %>
-        </td>
-        <td class="pa3">
-          <%= friend.twitter %>
-        </td>
-        <td class="pa3">
-          <%= friend.user_id %>
-        </td>
-        <td class="pa3">
-          <%= link_to 'Show', friend, class:"f6 link dim ba br2 ph3 pv2 mb2 dib white bg-hot-pink" %>
-        </td>
-        <td class="pa3">
-          <%= link_to 'Edit', edit_friend_path(friend), class:"f6 link dim br2 ba bw1 ph3 pv2 mb2 dib hot-pink" %>
-        </td>
-        <td class="pa3">
-          <%= link_to 'Delete', friend, method: :delete, data: { confirm: 'Are you sure?' }, class:"f6 link dim br2 ba bw1 ph3 pv2 mb2 dib b--black black" %>
-        </td>
+        <th class="fw6 tl pa3 bg-white">Name</th>
+        <th class="fw6 tl pa3 bg-white">Email</th>
+        <th class="fw6 tl pa3 bg-white">Phone</th>
+        <th class="fw6 tl pa3 bg-white">Twitter</th>
+        <th class="fw6 tl pa3 bg-white"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
+    </thead>
 
-<%= link_to 'New Friend', new_friend_path, class:"f6 link dim ba br2 ph3 pv2 mb2 dib white bg-hot-pink" %>
+    <tbody class="lh-copy">
+      <% @friends.each do |friend| %>
+        <tr class="stripe-dark">
+          <td class="pa3">
+            <%= link_to friend.first_name + ' ' + friend.last_name, friend, class:'f6 link dim black db' %>
+
+          </td>
+          <td class="pa3">
+            <%= friend.email %>
+          </td>
+          <td class="pa3">
+            <%= friend.phone %>
+          </td>
+          <td class="pa3">
+            <%= friend.twitter %>
+          </td>
+          <td class="pa3">
+            <%= link_to 'Delete', friend, method: :delete, data: { confirm: 'Are you sure?' }, class:"f6 link dim br2 ba bw1 ph3 pv2 mb2 dib b--black black" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+
+  <%= link_to 'New Friend', new_friend_path, class:"f6 link dim ba br2 ph3 pv2 mb2 dib white bg-hot-pink" %>
+<% else %>
+  <h2>
+    Please sign in
+  </h2>
+<% end %>
