@@ -1,19 +1,11 @@
 <%= form_with(model: friend) do |form| %>
-  <% if friend.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(friend.errors.count, "error") %> prohibited this friend from being saved:</h2>
-
-      <ul>
-        <% friend.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field mt3">
     <%= form.label :first_name, class:"db fw6 lh-copy f6" %>
     <%= form.text_field :first_name, class:"pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
+    <% friend.errors[:first_name].each do |msg| %>
+      <%= msg %>
+    <% end %>
   </div>
 
   <div class="field mt3">
@@ -24,11 +16,17 @@
   <div class="field mt3">
     <%= form.label :email, class:"db fw6 lh-copy f6" %>
     <%= form.text_field :email, class:"pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
+    <% friend.errors[:email].each do |msg| %>
+      <%= msg %>
+    <% end %>
   </div>
 
   <div class="field mt3">
     <%= form.label :phone, class:"db fw6 lh-copy f6" %>
     <%= form.text_field :phone, class:"pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
+    <% friend.errors[:phone].each do |msg| %>
+      <%= msg %>
+    <% end %>
   </div>
 
   <div class="field mt3">
