@@ -1,38 +1,10 @@
 <%= form_with(model: friend) do |form| %>
+  <% Friend::NEW_FRIEND_FORM_SCHEMA.each do |input| %>
 
-  <div class="field mt3">
-    <%= form.label :first_name, class:"db fw6 lh-copy f6" %>
-    <%= form.text_field :first_name, class:"pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
-    <% friend.errors[:first_name].each do |msg| %>
-      <%= msg %>
+    <%= form.label input[:name], class:"db fw6 lh-copy f6" %>
+    <%= form.text_field input[:name], class:"pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
+    <%= render "partials/form_validation", validation_error: friend.errors[input[:name]] %>
     <% end %>
-  </div>
-
-  <div class="field mt3">
-    <%= form.label :last_name, class:"db fw6 lh-copy f6" %>
-    <%= form.text_field :last_name, class:"pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
-  </div>
-
-  <div class="field mt3">
-    <%= form.label :email, class:"db fw6 lh-copy f6" %>
-    <%= form.text_field :email, class:"pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
-    <% friend.errors[:email].each do |msg| %>
-      <%= msg %>
-    <% end %>
-  </div>
-
-  <div class="field mt3">
-    <%= form.label :phone, class:"db fw6 lh-copy f6" %>
-    <%= form.text_field :phone, class:"pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
-    <% friend.errors[:phone].each do |msg| %>
-      <%= msg %>
-    <% end %>
-  </div>
-
-  <div class="field mt3">
-    <%= form.label :twitter, class:"db fw6 lh-copy f6" %>
-    <%= form.text_field :twitter, class:"pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"%>
-  </div>
 
     <%= form.number_field :user_id, id: :friend_user_id, value:current_user.id, type: :hidden %>
 
