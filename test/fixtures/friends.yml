@@ -3,13 +3,13 @@
 one:
   first_name: MyString
   last_name: MyString
-  email: MyString
-  phone: MyString
+  email: test1@test.com
+  phone: 02108732005
   twitter: MyString
 
 two:
   first_name: MyString
   last_name: MyString
-  email: MyString
-  phone: MyString
+  email: test2@test.com
+  phone: 02108732005
   twitter: MyString
