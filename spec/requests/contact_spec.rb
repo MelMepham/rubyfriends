@@ -1,16 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe "Contacts", type: :request do
+RSpec.describe "User Detail", type: :request do
   describe "GET /new" do
     it "returns http success" do
-      get "/contact/new"
+      get "/user_detail/new"
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /create" do
     it "returns http success" do
-      get "/contact/create"
+      get "/user_detail/create"
       expect(response).to have_http_status(:success)
     end
   end

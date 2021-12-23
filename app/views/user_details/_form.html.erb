@@ -1,12 +1,12 @@
-<%= form_with(model: friend) do |form| %>
-  <% Friend::NEW_FRIEND_FORM_SCHEMA.each do |input| %>
+<%= form_with(model: user_detail) do |form| %>
+  <% UserDetail::NEW_USER_DETAILS_FORM_SCHEMA.each do |input| %>
 
     <%= form.label input[:name], class:"db fw6 lh-copy f6" %>
     <%= form.text_field input[:name], class:"pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
-    <%= render "partials/form_validation", validation_error: friend.errors[input[:name]] %>
+    <%= render "partials/form_validation", validation_error: user_detail.errors[input[:name]] %>
     <% end %>
 
-    <%= form.number_field :user_id, id: :friend_user_id, value:current_user.id, type: :hidden %>
+    <%= form.number_field :user_id, id: :user_detail_user_id, value:current_user.id, type: :hidden %>
 
   <div class="actions mt3">
     <%= form.submit class:"f6 link dim ba br2 ph3 pv2 mb2 dib white bg-hot-pink" %>

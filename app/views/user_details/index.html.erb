@@ -1,4 +1,4 @@
-<h1>Contacts</h1>
+<h1>User Detail</h1>
 <% if user_signed_in? %>
   <table class="f6 w-100 mw8 center" cellspacing="0">
     <thead>
@@ -12,23 +12,23 @@
     </thead>
 
     <tbody class="lh-copy">
-      <% @contacts.each do |contact| %>
+      <% @user_details.each do |user_detail| %>
         <tr class="stripe-dark">
           <td class="pa3">
-            <%= link_to contact.first_name + ' ' + contact.last_name, contact, class:'f6 link dim black db' %>
+            <%= link_to "#{user_detail.first_name} #{user_detail.last_name}", user_detail, class:'f6 link dim black db' %>
 
           </td>
           <td class="pa3">
-            <%= contact.email %>
+            <%= user_detail.email %>
           </td>
           <td class="pa3">
-            <%= contact.phone %>
+            <%= user_detail.phone %>
           </td>
           <td class="pa3">
-            <%= contact.twitter %>
+            <%= user_detail.twitter %>
           </td>
           <td class="pa3">
-            <%= link_to 'Delete', contact, method: :delete, data: { confirm: 'Are you sure?' }, class:"f6 link dim br2 ba bw1 ph3 pv2 mb2 dib b--black black" %>
+            <%= link_to 'Delete', user_detail, method: :delete, data: { confirm: 'Are you sure?' }, class:"f6 link dim br2 ba bw1 ph3 pv2 mb2 dib b--black black" %>
           </td>
         </tr>
       <% end %>
@@ -36,7 +36,7 @@
   </table>
   <br>
 
-  <%= link_to 'New contact', new_contact_path, class:"f6 link dim ba br2 ph3 pv2 mb2 dib white bg-hot-pink" %>
+  <%= link_to 'New user_detail', new_user_detail_path, class:"f6 link dim ba br2 ph3 pv2 mb2 dib white bg-hot-pink" %>
 <% else %>
   <h2>
     Please sign in
