@@ -10,4 +10,10 @@ class RegistrationsController < Devise::RegistrationsController
         # add custom create logic here
     end
 
-end 
+    def edit
+        super
+        @my_user_detail
+        binding.pry
+    end
+
+end

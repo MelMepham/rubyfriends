@@ -1,11 +1,11 @@
 class UserDetailsController < ApplicationController
-  before_action :set_user_details, only: %i[ show edit update destroy ]
+  # before_action :set_user_details, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :correct_user, only: [:edit, :update, :destroy]
+
   # GET /user_details or /user_details.json
   def index
-    @user_details = current_user&.user_details&.where&.not("permissions.access": :owner) 
-
+    @user_details = current_user&.user_details&.where&.not("permissions.access": :owner)
   end
 
   # GET /user_details/1 or /user_details/1.json
@@ -14,7 +14,7 @@ class UserDetailsController < ApplicationController
 
   # GET /user_details/new
   def new
-    @user_detail = current_user.user_details.build
+    # @user_detail = current_user.user_details.build
   end
 
   # GET /user_details/1/edit
@@ -38,7 +38,7 @@ class UserDetailsController < ApplicationController
 
   # PATCH/PUT /user_details/1 or /user_details/1.json
   def update
-
+    binding.pry
     respond_to do |format|
       if @user_detail.update(user_detail_params)
         format.html { redirect_to @user_detail, notice: "user_detail was successfully updated." }

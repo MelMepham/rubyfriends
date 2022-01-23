@@ -1,5 +1,5 @@
 <%= form_with(model: user_detail) do |form| %>
-  <% UserDetail::NEW_USER_DETAILS_FORM_SCHEMA.each do |input| %>
+  <% UserDetail::NEW_USER_DETAIL_FORM_SCHEMA.each do |input| %>
 
     <%= form.label input[:name], class:"db fw6 lh-copy f6" %>
     <%= form.text_field input[:name], class:"pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>

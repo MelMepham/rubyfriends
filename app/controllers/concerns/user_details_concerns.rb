@@ -10,8 +10,12 @@ module UserDetailsConcerns
             )
             @permission.save!
         end
-        
     end
 
+    def update_user_details(access, user, user_details)
+        unless user.permissions == :write
+            
+        end
+    end
     
 end

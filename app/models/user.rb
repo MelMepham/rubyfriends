@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :user_details, through: :permissions
 
   def my_user_details
-    permissions.find_by(access: :owner).user_details
+    :permissions.find_by(access: :owner).user_details
   end
-
+  
 end

@@ -3,30 +3,30 @@
 
   <p>
     <strong>First name:</strong>
-    <%= @user_detail.first_name %>
+    <%= @user_detail&.first_name %>
   </p>
 
   <p>
     <strong>Last name:</strong>
-    <%= @user_detail.last_name %>
+    <%= @user_detail&.last_name %>
   </p>
 
   <p>
     <strong>Email:</strong>
-    <%= @user_detail.email %>
+    <%= @user_detail&.email %>
   </p>
 
   <p>
     <strong>Phone:</strong>
-    <%= @user_detail.phone %>
+    <%= @user_detail&.phone %>
   </p>
 
   <p>
     <strong>Twitter:</strong>
-    <%= @user_detail.twitter %>
+    <%= @user_detail&.twitter %>
   </p>
 </div>
 
-<%= link_to 'Edit', edit_user_detail_path(@user_detail), class:"f6 link dim br2 ba bw1 ph3 pv2 mb2 dib b__black" %>
+<%= link_to 'Edit', edit_user_detail_path(@user_details), class:"f6 link dim br2 ba bw1 ph3 pv2 mb2 dib b__black" %>
 <%= link_to 'Back', user_details_path, class:"f6 link dim br2 ba bw1 ph3 pv2 mb2 dib hot-pink" %>
-<%= link_to 'Delete', @user_detail, method: :delete, data: { confirm: 'Are you sure?' }, class:"f6 link dim br2 ba bw1 ph3 pv2 mb2 dib b--black black" %>
+<%= link_to 'Delete', @user_details, method: :delete, data: { confirm: 'Are you sure?' }, class:"f6 link dim br2 ba bw1 ph3 pv2 mb2 dib b--black black" %>

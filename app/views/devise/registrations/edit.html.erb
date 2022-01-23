@@ -1,4 +1,19 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Edit Profile</h2>
+<%= form_with(model: @my_user_detail, method: :update, url: "/user_details/#{}") do |f| %>
+
+    
+    <%= f.label 'Email', class:"db fw6 lh-copy f6" %>
+    <%= f.text_field 'email', class:"pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
+
+
+    <%= f.number_field :user_id, id: :user_detail_user_id, value:current_user.id, type: :hidden %>
+
+  <div class="actions mt3">
+    <%= f.submit "Update", class:"f6 link dim ba br2 ph3 pv2 mb2 dib white bg-hot-pink" %>
+  </div>
+<% end %>
+
+<h2>Edit Password</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -40,4 +55,6 @@
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"f6 link dim br2 ba bw1 ph3 pv2 mb2 dib hot-pink" %></p>
 
+<h1>Hello</h1>
+<%= @my_user_details %>
 <%= link_to "Back", :back, class:"f6 link dim black db" %>
